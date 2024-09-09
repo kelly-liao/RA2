@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('category', [App\Http\Controllers\CategoryController::class]);
+
+// Route::get('/create', [App\Http\Controllers\CategoryController::class, 'create']);
+// Route::get('/category', [App\Http\Controllers\CategoryController::class, 'index']);
