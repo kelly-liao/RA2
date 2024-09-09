@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Models\Category;
+use App\Models\Category;
 class CategoryController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        dd('ok!ok!');
+        $categories = Category::latest()->get();
+        return view ('category.index',compact('categories'));
     }
 
     /**
@@ -23,8 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        dd('okok');
-        // return "okok";
+        return view('category.create');
     }
 
     /**
@@ -35,7 +35,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create([
+            'name'=>$request->get('name')
+
+        ]);
+        return redirect()->back()->with('message','Category created');
     }
 
     /**
