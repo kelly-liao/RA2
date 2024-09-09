@@ -18,6 +18,7 @@ class CreateFoodTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('price');
+            $table->integer('category_id');
             $table->timestamps();
         });
     }
