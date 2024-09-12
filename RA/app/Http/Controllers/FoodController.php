@@ -14,8 +14,7 @@ class FoodController extends Controller
      */
     public function index()
     {
-        //
-    }
+        return view('food.store');    }
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +23,7 @@ class FoodController extends Controller
      */
     public function create()
     {
-        //
+        return view('food.create');
     }
 
     /**
@@ -35,7 +34,13 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required',
+            'description'=>'required',
+            'price'=>'required|integer',
+            'category'=>'required',
+            'image'=>'required|mims:png,jepg,jpg'
+        ]);
     }
 
     /**
