@@ -29,3 +29,5 @@ Route::resource('food', 'App\Http\Controllers\FoodController');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/foods/{id}',[App\Http\Controllers\FoodController::class, 'view'])->name('food.view');
