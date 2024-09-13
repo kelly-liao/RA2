@@ -21,7 +21,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('category', [App\Http\Controllers\CategoryController::class]);
-
+Route::resource('category', 'App\Http\Controllers\CategoryController');
+Route::resource('food', 'App\Http\Controllers\FoodController');
 // Route::get('/create', [App\Http\Controllers\CategoryController::class, 'create']);
 // Route::get('/category', [App\Http\Controllers\CategoryController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/foods/{id}',[App\Http\Controllers\FoodController::class, 'view'])->name('food.view');
